@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Preschool Quiz Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Title Screen -->
+    <div id="title-screen" class="screen active">
+      <img src="logo.png" alt="Logo" id="logo">
+      <h1>Budding Minds</h1>
+      <button onclick="goToScreen('login-screen', 'student')">Start</button>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+      <h2>Login</h2>
+      <input type="text" id="login-username" placeholder="Username">
+      <input type="password" id="login-password" placeholder="Password">
+      <button onclick="login()">Login</button>
+      <button onclick="goToScreen('signup-screen')">Sign Up</button>
+      <button onclick="goToScreen('title-screen')">Back</button>
+    </div>
+
+    <!-- Signup Screen -->
+    <div id="signup-screen" class="screen">
+      <h2>Sign Up</h2>
+      <input type="text" id="signup-username" placeholder="Username">
+      <input type="password" id="signup-password" placeholder="Password">
+      <button onclick="signup()">Sign Up</button>
+      <button onclick="goToScreen('login-screen')">Back</button>
+    </div>
+
+    <!-- Student Menu -->
+    <div id="student-menu" class="screen">
+      <h2>Student Menu</h2>
+      <button onclick="goToScreen('subject-selection')">Start Quiz</button>
+      <button onclick="goToScreen('title-screen')">Sign Out</button>
+      <button onclick="restartApp()">Restart App</button>
+    </div>
+
+    <!-- Subject Selection Screen -->
+    <div id="subject-selection" class="screen">
+      <h2>Select a Subject</h2>
+      <button onclick="selectSubject('color')">Color</button>
+      <button onclick="selectSubject('science')">Science</button>
+      <button onclick="selectSubject('math')">Math</button>
+      <button onclick="goToScreen('student-menu')">Back</button>
+    </div>
+
+    <!-- Difficulty Selection -->
+    <div id="difficulty-selection" class="screen">
+      <h2>Select Difficulty</h2>
+      <div id="difficulty-buttons">
+        <button class="difficulty-btn" data-difficulty="veryEasy" onclick="startQuiz('veryEasy')">Very Easy</button>
+        <button class="difficulty-btn" data-difficulty="easy" onclick="startQuiz('easy')">Easy</button>
+        <button class="difficulty-btn" data-difficulty="medium" onclick="startQuiz('medium')">Medium</button>
+        <button class="difficulty-btn" id="hard-btn" data-difficulty="hard" onclick="startQuiz('hard')">Hard (6 pts)</button>
+        <button class="difficulty-btn" id="veryHard-btn" data-difficulty="veryHard" onclick="startQuiz('veryHard')">Very Hard (9 pts)</button>
+        <button class="difficulty-btn" id="ultraHard-btn" data-difficulty="ultraHard" onclick="startQuiz('ultraHard')">Ultra Hard (12 pts)</button>
+      </div>
+      <p id="total-score">Total Score: 0</p>
+      <button class="nav-btn" onclick="restartProgress()">Restart Progress</button>
+      <button class="nav-btn" onclick="goToScreen('student-menu')">Main Menu</button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen">
+      <h2 id="quiz-question"></h2>
+      <div id="quiz-options"></div>
+    </div>
+
+    <!-- Score Screen -->
+    <div id="score-screen" class="screen">
+      <h2>Quiz Completed!</h2>
+      <p id="score-text"></p>
+      <button onclick="goToScreen('difficulty-selection')">Return to Difficulty</button>
+      <button onclick="goToScreen('student-menu')">Return to Main Menu</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

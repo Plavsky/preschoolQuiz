@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+#app {
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+#logo {
+  width: 120px;
+  margin: 0 auto 10px auto;
+  display: block;
+}
+
+.screen {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.screen.active {
+  display: flex;
+}
+
+input {
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:disabled,
+.difficulty-btn.locked {
+  background-color: #999;
+  color: #ddd;
+  cursor: not-allowed;
+}
+
+.difficulty-btn {
+  background-color: #6ca0dc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.nav-btn {
+  margin-top: 10px;
+}
+
+#quiz-options button {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+  background-color: #ffb347;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
